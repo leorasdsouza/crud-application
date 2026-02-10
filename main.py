@@ -8,7 +8,7 @@ from typing import List
 # Create tables in Supabase (if they don't exist)
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="FinTech CRUD API", description="Internship Project")
+app = FastAPI(title="CRUD API", description="CRUD API using FastAPI and PostgreSQL")
 
 # Dependency to get database session
 def get_db():
@@ -20,7 +20,7 @@ def get_db():
 
 @app.get("/")
 def read_root():
-    return {"message": "FinTech CRUD API with FastAPI & Supabase", "status": "active"}
+    return {"message": "CRUD API with FastAPI & Supabase", "status": "active"}
 
 @app.get("/items/", response_model=List[schemas.Item])
 def read_items(db: Session = Depends(get_db)):
